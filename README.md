@@ -6,19 +6,17 @@ The aim of this project is to explore how complex situations can be handled by o
 
 - Two agents
 - System model: $x_{k+1} = x_k +u_k, x\in [-10,10], u \in [-1,1]$, with initial state $x^{\{1\}}_0=x^{\{2\}}_0=0$. (one-dimensional motion planning and the control input is its speed.)
-- Specification:  
+- Specification: the distance between two vehicles should be larger than 1m
 ```math
 c(x(t), t) = \left\{ \begin{array}{ll} 1  &\text{for all} \ t < c_{start} \  \text{and all} \ t > c_{end} \\ x^{\{1\}} - x^{\{2\}}-1 & \text{for all} \ t \in [c_{start}, c_{end}] \end{array} \right.
 ```
-which implies that the distance between two vehicles should be larger than 1m.
-
 - Required temporal robustness: $\theta$
 
 - objective: minimize its energy.
 
 - When $c_{span} = 10$ and $\theta=5$, here is the final results:  
 
-![image](http://xinyi-yu.test.upcdn.net/case1.jpg!/scale/66)
+![image](http://xinyi-yu.test.upcdn.net/case1.jpg!/scale/50)
 
 - Results:
 
@@ -31,7 +29,8 @@ which implies that the distance between two vehicles should be larger than 1m.
 ### Remark: 
 
 - For simplicity, we directly set $c_{start} = 1+\theta$, control horizon $T=c_{end}+\theta$.
-- In this case, we need to introduce $(2 \theta +1)^2 (c_{span}+1)+1$ binary variables, where $c_{span} = c_{end}-c_{start} + 1$.
+- In this case, we need to introduce $(2 \theta +1)^2 (c_{span}+1)+1$ binary variables, where $c_{span} = c_{end}-c_{start} + 1$. 
+- memory error: 
 
 
 

@@ -6,7 +6,7 @@ The aim of this project is to explore how complex situations can be handled by o
 
 - Two agents
 - System model: $x_{k+1} = x_k +u_k, x\in [-10,10], u \in [-1,1]$, with initial state $x^{\{1\}}_0=x^{\{2\}}_0=0$. (one-dimensional motion planning and the control input is its speed.)
-- Specification: the distance between two vehicles should be larger than 1m
+- Specification: the distance between two agents should be larger than 1m
 ```math
 c(x(t), t) = \left\{ \begin{array}{ll} 1  &\text{for all} \ t < c_{start} \  \text{and all} \ t > c_{end} \\ x^{\{1\}} - x^{\{2\}}-1 & \text{for all} \ t \in [c_{start}, c_{end}] \end{array} \right.
 ```

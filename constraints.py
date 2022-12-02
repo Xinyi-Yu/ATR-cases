@@ -4,8 +4,12 @@ from gurobipy import *
 def addConstr(ATR, x, u):
     # system model constraints
     for n in range(0, num):
-        ATR.addConstrs((x[i, n] == x[i-1, n] + u[i-1, n] for i in range(1, T+1)), 'state of agent n')
         ATR.addConstr(x[0, n] == 0, 'initial state')
+        if SysMode == 0:
+            ATR.addConstrs((x[i, n] == x[i-1, n] + u[i-1, n] for i in range(1, T+1)), 'state of agent n')
+        else:
+            ATR.setParam('NonConvex', 2)
+            ATR.addConstrs((x[i, n] == 0.94*x[i-1, n] + 4.4*u[i-1, n] - 0.08*x[i-1, n]*u[i-1, n] for i in range(1, T+1)), 'state of agent n')
 
 
     if num == 2:

@@ -72,5 +72,35 @@ c(x(t), t) = \left\{ \begin{array}{ll} 1  &\text{for all} \ t < c_{start} \  \t
 
 ## Case 3:
 
-We consider a case with nonlinear system model with 2 agents.
+We consider a case with nonlinear system model with 2 agents. Other problem setting is the same as case 1.
+
+In this case, we use a temperature control system $x_{k+1}=0.94x_k+0.08(55-x_k)u_k$ with control input constraints $\mathcal{U}=[0,1]$.
+
+- Some comparison results of computation time:
+
+| Computation time (number of binary variables) | $\theta = 3, c_{span} = 10$ | $\theta = 5, c_{span} = 10$ | $\theta = 5, c_{span} = 11$ |
+| :-------------------------------------------: | :-------------------------: | :-------------------------: | :-------------------------: |
+|            linear model in case 1             |         0.02s (540)         |        0.12s (1332)         |        0.15s (1453)         |
+|                nonlinear model                |         8.8s (540)          |         204s (1332)         |         549s (1453)         |
+
+### Remark :
+
+- Our encoding method doesn't work well in this nonlinear model even with this slight nonlinearity, not to mention systems with $sin, cos$ stuffs.
+- This temperature control system doesn't make sense in the asynchronous temporal robustness setting. I just used it to show the computational complexity of our method.
+- I think encoding method is not a good fit for high-level synthesis problem with nonlinear systems, including STL (TR) synthesis. 
+
+
+
+## Discussions:
+
+- For the nonlinear specification case, I think the result will be similar with case 3.
+- Readers could reproduce these results, just by changing corresponding parameters in `parameters.py`. 
+- All the above results are implemented in my own laptop with i5-8400 CPU.
+- In this project, we use the following packages
+
+```
+gurobipy        10.0.0 
+matplotlib      3.6.2  
+numpy           1.23.5
+```
 

@@ -1,5 +1,5 @@
 # Efficient control synthesis under asynchronous temporal robustness (ATR) constraints
-In this paper, we propose a efficient control synthesis method under ATR constraints which are defined with respect to simple safety or  complex signal temporal logic specifications. Paper link will be added later.
+In this paper, we propose a efficient control synthesis method under ATR constraints which are defined with respect to simple safety or  complex signal temporal logic specifications. Here is the paper [link](https://arxiv.org/pdf/2307.12855.pdf).
 
 #### Instruction
 
